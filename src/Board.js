@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useAxiosProfile } from "./AxiosProfile";
+import "./Board.scss";
 
 const getComment = async () => {
   const response = await axios.get(
@@ -31,14 +32,16 @@ export default function Board() {
     );
   }
   return (
-    <div>
+    <div className="Block">
       <h1>댓글목록</h1>
       <button onClick={fetchData}>리로드</button>
       {comments.map((comment) => (
-        <div key={comment.id}>
+        <div key={comment.id} className="textBox">
           <b>유저명: {comment.name}</b>
-          <p>이메일: {comment.email}</p>
-          <p>내용: {comment.body}</p>
+          <div className="commentBox">
+            <p>이메일: {comment.email}</p>
+            <p>내용: {comment.body}</p>
+          </div>
         </div>
       ))}
     </div>

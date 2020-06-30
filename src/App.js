@@ -11,29 +11,31 @@ import Board from "./Board";
 function App({ history }) {
   return (
     <div className="App">
-      <ul>
-        <li>
-          <Link to="/about">about</Link>
-        </li>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/profile/s">유저정보</Link>
-        </li>
-        <li>
-          <Link to="/profiles/">유저목록</Link>
-        </li>
-        <li>
-          <Link to="/board">게시판</Link>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <Link to="/">버튼</Link>
-        </li>
-        <Route path="/" component={HistorySample} />
-      </ul>
+      <nav className="Nav">
+        <ul className="Nav-left">
+          <li>
+            <Link to="/about">about</Link>
+          </li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/profile/s">유저정보</Link>
+          </li>
+          <li>
+            <Link to="/profiles/">유저목록</Link>
+          </li>
+          <li>
+            <Link to="/board">게시판</Link>
+          </li>
+        </ul>
+        <ul className="Nav-right">
+          <li>
+            <Link to="/">버튼</Link>
+          </li>
+          <Route path="/" component={HistorySample} />
+        </ul>
+      </nav>
       <Route path="/" component={Home} exact />
       <Route path="/about" component={About} />
       <Route path="/profile/:username" component={Profile} />
